@@ -7,6 +7,32 @@
     <title>Sistema</title>
 </head>
 <body>
-    <h1>CRUD-Python-Flask</h1>
+    <h1 class="text-center mt-5 mb-5 txt-primary">CRUD - Python - Flask</h1>
+
+    <div class="container">
+        <div class="card shadow">
+            <div class="card-body">
+                <form action="/user" method="post">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label>Username</label>
+                            <input type="text" class="form-control mb-3" name="username">
+                        </div>
+                        <div class="col">
+                            <label>Name</label>
+                            <input type="text" class="form-control mb-3" name="name">
+                        </div>
+                        <div class="col">
+                            <label>Password</label>
+                            <input type="text" class="form-control mb-3" name="password">
+                        </div>  
+                        <div class="col">
+                            <button class="btn btn-primary mb-3 mt-4" type="submit">Save</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
