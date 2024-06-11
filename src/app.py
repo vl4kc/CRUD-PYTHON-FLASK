@@ -40,5 +40,25 @@ def addUser():
         db.database.commit()
     return redirect(url_for('home'))
 
+#Ruta para editar usuarios en la bd
+@app.route('/edit/<string:id>', methods=['post'])
+def edit(id):
+    #extraemos el valor del campo del formulario 
+    username = request.form['username'] 
+    name = request.form['name']
+    password = request.form['password']
+
+    #evaluamos que username, name y password no estén vacías
+    if username and name and password:
+        cursor = db.database.cursor()
+        sql = 'UPDATE user SET username = %s, name = %s, password = %s WHERE id = %s'
+        data = (username,name,password,id)
+    else:
+        sql = "UPDATE user SET username = %s, name = %s, password = %s WHERE id = %s"
+        data = (username, name, password, id)
+    cursor.execute(sql, data)
+    db.database.commit()
+    return redirect(url_for('home'))
+
 if __name__ == '__main__':
     app.run(debug=True)
