@@ -60,5 +60,15 @@ def edit(id):
     db.database.commit()
     return redirect(url_for('home'))
 
+#Ruta para eliminar usuario en la bd
+@app.route('/delete/<string:id>')
+def delete(id):
+    cursor = db.database.cursor()
+    sql = 'DELETE FROM user WHERE id=%s'
+    data = (id,)
+    cursor.execute(sql,data)
+    db.database.commit()
+    return redirect(url_for('home'))
+
 if __name__ == '__main__':
     app.run(debug=True)
